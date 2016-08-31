@@ -1,4 +1,4 @@
-I want to be able auto generate these color schemes
+# I want to be able auto generate these color schemes
 
 * Complementary
 * Analogous
