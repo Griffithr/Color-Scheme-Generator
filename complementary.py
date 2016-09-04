@@ -24,5 +24,9 @@ for i in range(360):
 
     im.save('tst{}.png'.format(str(i).zfill(3)))
 
+'''
+img magik
+convert -delay 0 -loop 0 *.png animation.gif
+'''
 del draw
 
