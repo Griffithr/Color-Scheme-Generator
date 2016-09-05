@@ -1,0 +1,8 @@
+
+*.xml
+
+__pycache__/hsl.cpython-35.pyc
+
+.idea/colorPy.iml
+
+*.pyc
