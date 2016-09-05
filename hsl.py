@@ -1,6 +1,9 @@
 class Hsl:
 
-    def __init__(self, saturation, color, hue):
-        self.saturation = saturation
-        self.color = color
-        self.hue = hue
+    def __init__(self, h, s, l):
+        self.h = h
+        self.s = s
+        self.l = l
+
+    def pillow_format(self):
+        return 'hsl({}, {}%, {}%)'.format(self.h, self.s, self.l)

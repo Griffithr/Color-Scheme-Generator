@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw
 
-def img(colors, dif=30):
+
+def img(colors, fl_name):
     amount_of_colors = len(colors)
     y = 100
     x = 100 * amount_of_colors
@@ -10,12 +11,9 @@ def img(colors, dif=30):
 
     draw.rectangle([(0, 0), (x, y)], fill='white')
 
-
     for i, cl in enumerate(colors):
-        draw.rectangle([(i * 100, 0), ((i+1) * 100, 100)], fill=cl)
-    # [ (i* 100, 0), ((i+1) * 100, 100)]
+        draw.rectangle([(i * 100, 0), ((i+1) * 100, 100)], fill=cl.pillow_format())
 
     del draw
-    im.save('tst.png')
+    im.save(fl_name)
 
-img(['red', 'green', 'blue', 'pink'])
