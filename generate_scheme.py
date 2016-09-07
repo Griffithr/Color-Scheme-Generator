@@ -64,22 +64,22 @@ if __name__ == '__main__':
     def format_examples_path(file_name):
         return os.path.abspath('examples/') + '/' + file_name
 
-    for i in range(360):
-        sc_complementary = Generate().complementary(Hsl(h=i, s=100, l=50))
+    for i in range(60):
+        sc_complementary = Generate().complementary(Hsl(h=i*6, s=100, l=50))
         img(sc_complementary, format_examples_path('complementary/{}.png'.format(str(i).zfill(3))))
 
-    for i in range(360):
-        sc_monochromatic = Generate().monochromatic(Hsl(h=i, s=100, l=50), amount_of_colors=10)
+    for i in range(60):
+        sc_monochromatic = Generate().monochromatic(Hsl(h=i*6, s=100, l=50), amount_of_colors=10)
         img(sc_monochromatic, format_examples_path('monochromatic/{}.png'.format(str(i).zfill(3))))
 
 
-    for i in range(360):
-        sc_analogous = Generate().analogous(Hsl(h=i, s=100, l=50))
+    for i in range(60):
+        sc_analogous = Generate().analogous(Hsl(h=i*6, s=100, l=50))
         img(sc_analogous, format_examples_path('analogous/{}.png'.format(str(i).zfill(3))))
 
 
-    for i in range(360):
-        sc_triadic = Generate().triadic(Hsl(h=i, s=100, l=50))
+    for i in range(60):
+        sc_triadic = Generate().triadic(Hsl(h=i*6, s=100, l=50))
         img(sc_triadic, format_examples_path('triadic/{}.png'.format(str(i).zfill(3))))
 
 
