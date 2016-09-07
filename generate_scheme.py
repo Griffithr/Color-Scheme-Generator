@@ -1,5 +1,6 @@
 from hsl import Hsl
 from make_img_of_scheme import img
+import os
 
 '''
 I used this http://www.tigercolor.com/color-lab/color-theory/color-theory-intro.htm really helpful site
@@ -63,14 +64,27 @@ if __name__ == '__main__':
     def format_examples_path(file_name):
         return os.path.abspath('examples/') + '/' + file_name
 
-    sc_complementary = Generate().complementary(Hsl(h=360, s=100, l=50))
-    img(sc_complementary, format_examples_path('complementary.png'))
+    for i in range(360):
+        sc_complementary = Generate().complementary(Hsl(h=i, s=100, l=50))
+        img(sc_complementary, format_examples_path('complementary/{}.png'.format(str(i).zfill(3))))
 
-    sc_monochromatic = Generate().monochromatic(Hsl(h=128, s=100, l=50), amount_of_colors=10)
-    img(sc_monochromatic, format_examples_path('monochromatic.png'))
+    for i in range(360):
+        sc_monochromatic = Generate().monochromatic(Hsl(h=i, s=100, l=50), amount_of_colors=10)
+        img(sc_monochromatic, format_examples_path('monochromatic/{}.png'.format(str(i).zfill(3))))
 
-    sc_analogous = Generate().analogous(Hsl(h=20, s=100, l=50))
-    img(sc_analogous, format_examples_path('analogous.png'))
 
-    sc_triadic = Generate().triadic(Hsl(h=50, s=100, l=50))
-    img(sc_triadic, format_examples_path('traidic.png'))
+    for i in range(360):
+        sc_analogous = Generate().analogous(Hsl(h=i, s=100, l=50))
+        img(sc_analogous, format_examples_path('analogous/{}.png'.format(str(i).zfill(3))))
+
+
+    for i in range(360):
+        sc_triadic = Generate().triadic(Hsl(h=i, s=100, l=50))
+        img(sc_triadic, format_examples_path('triadic/{}.png'.format(str(i).zfill(3))))
+
+
+    '''
+    After these go throw I run this commmand  convert   -delay 20   -loop 0   sphere*.gif   animatespheres.gif
+    which I got from https://www.tjhsst.edu/~dhyatt/supercomp/n401a.html
+    '''
+
