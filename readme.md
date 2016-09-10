@@ -4,7 +4,7 @@
   *Generates aesthetically pleasing color/hue combinations*
   * Complementary - Done
   * Analogous - Done
-  * Split Complementary
+  * Split Complementary - Done
   * Triadic - Done
   * Monochromatic - Done
   * Square
