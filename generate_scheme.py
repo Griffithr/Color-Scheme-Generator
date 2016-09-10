@@ -57,6 +57,13 @@ class Generate:
             Hsl(h=color.h + 120, s=color.s, l=color.l)
         ]
 
+    def split_complementary(self, color):
+        # takes complementary color and finds the two other colors next to it
+        return [
+            color,
+            Hsl(h=self._loop_around_three_sixty(color.h + 180 - 45), s=color.s, l=color.l),
+            Hsl(h=self._loop_around_three_sixty(color.h + 180 + 45), s=color.s, l=color.l)
+        ]
 
 if __name__ == '__main__':
     import os
@@ -82,6 +89,10 @@ if __name__ == '__main__':
         sc_triadic = Generate().triadic(Hsl(h=i*6, s=100, l=50))
         img(sc_triadic, format_examples_path('triadic/{}.png'.format(str(i).zfill(3))))
 
+    for i in range(60):
+        starting_color = Hsl(h=i*6, s=100, l=50)
+        sc_split_complementary = Generate().split_complementary(starting_color)
+        img(sc_split_complementary, format_examples_path('split_complementary/{}.png'.format(str(i).zfill(3))))
 
     '''
     After these go throw I run this commmand  convert   -delay 20   -loop 0   sphere*.gif   animatespheres.gif
