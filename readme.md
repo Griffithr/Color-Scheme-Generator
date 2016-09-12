@@ -1,12 +1,12 @@
 # __This project is not completed. This is not documention it's just brainstorming.__
 
-## Color Schemes
+## Color Schemes (This works sortoff)
   *Generates aesthetically pleasing color/hue combinations*
-  * Complementary - Done
-  * Analogous - Done
-  * Split Complementary - Done
-  * Triadic - Done
-  * Monochromatic - Done
+  * Complementary
+  * Analogous
+  * Split Complementary
+  * Triadic
+  * Monochromatic
   * Square
 
 ## Color Formats
