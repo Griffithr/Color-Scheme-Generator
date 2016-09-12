@@ -1,12 +1,16 @@
 from hsl import Hsl
 from make_img_of_scheme import img
-import os
 
 '''
 I used this http://www.tigercolor.com/color-lab/color-theory/color-theory-intro.htm really helpful site
 to figure out a bunch of stuff with this project
 '''
 
+"""
+The code bellow is really ugly and poorly written. Im going to wrewrite it once I have a clearer image of
+what I want/need to do. Regardless the code still shows the operations that need to be perormed on
+the hues to get the right color
+"""
 
 class Generate:
 
@@ -65,6 +69,14 @@ class Generate:
             Hsl(h=self._loop_around_three_sixty(color.h + 180 + 45), s=color.s, l=color.l)
         ]
 
+    def square(self, color):
+        return [
+            color,
+            Hsl(h=self._loop_around_three_sixty(color.h + 90), s=color.s, l=color.l),
+            Hsl(h=self._loop_around_three_sixty(color.h + 180), s=color.s, l=color.l),
+            Hsl(h=self._loop_around_three_sixty(color.h - 90), s=color.s, l=color.l)
+        ]
+
 if __name__ == '__main__':
     import os
 
@@ -93,6 +105,10 @@ if __name__ == '__main__':
         starting_color = Hsl(h=i*6, s=100, l=50)
         sc_split_complementary = Generate().split_complementary(starting_color)
         img(sc_split_complementary, format_examples_path('split_complementary/{}.png'.format(str(i).zfill(3))))
+
+    for i in range(60):
+        sc_square = Generate().square(Hsl(h=i * 6, s=100, l=50))
+        img(sc_square, format_examples_path('square/{}.png'.format(str(i).zfill(3))))
 
     '''
     After these go throw I run this commmand  convert   -delay 20   -loop 0   sphere*.gif   animatespheres.gif

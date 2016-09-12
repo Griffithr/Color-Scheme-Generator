@@ -6,3 +6,7 @@ __pycache__/hsl.cpython-35.pyc
 .idea/colorPy.iml
 
 *.pyc
+
+examples/.DS_Store
+
+.DS_Store
