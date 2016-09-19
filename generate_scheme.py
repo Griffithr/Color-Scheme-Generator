@@ -4,12 +4,9 @@ from make_img_of_scheme import img
 
 class Generate:
 
-    def __init__(self):
-        pass
-
     def complementary(self, color):
         new_color = Hsl(h=color.h + 180, s=color.s, l=color.l)
-        return [new_color]
+        return new_color
 
     def monochromatic(self, color, amount_of_colors=10):
         new_colors = []
@@ -24,7 +21,7 @@ class Generate:
 
     def analogous(self, color, degree_dif=45):
         return [
-            Hsl(h=color._h - degree_dif, s=color.s, l=color.l),
+            Hsl(h=color.h - degree_dif, s=color.s, l=color.l),
             Hsl(h=color.h + degree_dif, s=color.s, l=color.l)
         ]
 
@@ -50,7 +47,8 @@ class Generate:
         ]
 
 if __name__ == '__main__':
-    import os
+    '''
+        import os
 
     def format_examples_path(file_name):
         return os.path.abspath('examples/') + '/' + file_name
@@ -73,3 +71,4 @@ if __name__ == '__main__':
     generate_example_folder('split_complementary', Generate().split_complementary)
     generate_example_folder('square', Generate().square)
 
+    '''
