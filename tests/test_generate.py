@@ -6,6 +6,7 @@ from hsl import Hsl
 class TestGenerate(TestCase):
 
     hue_360 = Hsl(360, 100, 50)
+    hue_359 = Hsl(359, 100, 50)
     hue_180 = Hsl(180, 100, 50)
     hue_90 = Hsl(90, 100, 50)
     hue_0 = Hsl(0, 100, 50)
@@ -21,8 +22,9 @@ class TestGenerate(TestCase):
 
     def test_analogous(self):
         scheme = Generate().analogous(self.hue_360, degree_dif=45)
-        print(self.hue_360.h)
-        self.assertEqual(scheme[0].h, (self.hue_360.h) - 45)
+        # 359 - 44 = 135 and 315 + 45 = 0
+        self.assertEqual(scheme[0].h, (self.hue_359.h) - 44)
+        # 0 + 45
         self.assertEqual(scheme[1].h, self.hue_360.h + 45)
 
     def test_triadic(self):
