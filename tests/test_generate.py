@@ -17,21 +17,10 @@ class TestGenerate(TestCase):
         self.assertEqual(Generate().complementary(self.hue_90).h, 270)
         self.assertEqual(Generate().complementary(self.hue_0).h, 180)
 
-    def test_monochromatic(self):
-        self.fail()
 
     def test_analogous(self):
         scheme = Generate().analogous(self.hue_360, degree_dif=45)
-        # 359 - 44 = 135 and 315 + 45 = 0
-        self.assertEqual(scheme[0].h, (self.hue_359.h) - 44)
+        # 360 - 45 = 315 and 315 + 45 = 0
+        self.assertEqual(scheme[0].h, 315)
         # 0 + 45
         self.assertEqual(scheme[1].h, self.hue_360.h + 45)
-
-    def test_triadic(self):
-        self.fail()
-
-    def test_split_complementary(self):
-        self.fail()
-
-    def test_square(self):
-        self.fail()

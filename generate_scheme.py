@@ -47,6 +47,11 @@ class Generate:
         ]
 
 if __name__ == '__main__':
+
+    for i in range(1, 7):
+        starting_color = Hsl(i * 60, 100, 50)
+        img([starting_color] + Generate().square(starting_color), 'tst_{}.png'.format(i))
+
     '''
         import os
 

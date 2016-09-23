@@ -2,9 +2,9 @@ from PIL import Image, ImageDraw
 
 
 def img(colors, fl_name):
-    amount_of_colors = len(colors)
+    colors_in_scheme = len(colors)
     y = 100
-    x = 100 * amount_of_colors
+    x = 100 * colors_in_scheme
 
     im = Image.new('RGB', (x, y))
     draw = ImageDraw.Draw(im, 'RGB')
